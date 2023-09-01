@@ -10,14 +10,14 @@ const loadBtn = async () => {
 const displayButtons = buttons => {
       const buttonContainer = document.getElementById('button-container');
 
-      buttons.forEach(button => {
+      for (const button of buttons) {
             const buttonCard = document.createElement('button');
             buttonCard.classList = `btn btn-error text-white bg-[#FF1F3D]`;
             buttonCard.innerHTML = `
             ${button.category}
             `;
             buttonContainer.appendChild(buttonCard);
-      })
+      }
 }
 
 const loadVideo = async () => {
@@ -33,9 +33,34 @@ const displayVideo = videos => {
 
       videos.forEach(video => {
             const videoCard = document.createElement('div');
+
+            const seconds = video.others.posted_date;
+            const hours = Math.floor(seconds / 3600);
+            const remainingSeconds = seconds % 3600;
+            const minutes = Math.floor(remainingSeconds / 60);
+            const timeAgoText = (seconds > 0) ? `${hours}hrs ${minutes}min ago` : '';
+
+            if(seconds > 0) {
+                  hid = 'bg-[#171717]';
+            }
+            else {
+                  hid = '';
+            }
+
+            if(seconds > 167265600) {
+                  lef = 'left-32';
+            }
+            else{
+                  lef = 'left-48';
+            }
+
+
             videoCard.classList = `card card-compact bg-base-100`;
             videoCard.innerHTML = `
-            <img class="rounded-lg h-52" src="${video.thumbnail}" />
+            <div>
+            <img class="rounded-lg h-52 w-full" src="${video.thumbnail}" />
+            <p class="p-1  rounded text-white relative -top-10 ${lef} w-fit ${hid}">${timeAgoText}</p>
+            </div>
             <div class="card-body">
                   
                   <div class="flex items-start gap-3">
@@ -47,7 +72,9 @@ const displayVideo = videos => {
 
                         <div>
                               <h2 class="card-title">${video.title}</h2>
-                              <p>${video.authors[0].profile_name}</p>
+                              <div>
+                                    <p>${video.authors[0].profile_name}</p>
+                              </div>
                               <p>${video.others.views} views</p>
                         </div>
                   </div>
@@ -57,6 +84,13 @@ const displayVideo = videos => {
             videoContainer.appendChild(videoCard);
       })
 }
+
+// const timeCalculation = (seconds) => {
+//       const hours = Math.floor(seconds / 3600);
+//       const remainingSeconds = seconds % 3600;
+//       const minutes = Math.floor(remainingSeconds / 60);
+//       return { hours: hours, minutes: minutes };
+// }
 
 loadVideo();
 
