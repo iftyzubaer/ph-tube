@@ -47,19 +47,11 @@ const displayVideo = videos => {
                   hid = '';
             }
 
-            if(seconds > 167265600) {
-                  lef = 'left-32';
-            }
-            else{
-                  lef = 'left-48';
-            }
-
-
             videoCard.classList = `card card-compact bg-base-100`;
             videoCard.innerHTML = `
-            <div>
-            <img class="rounded-lg h-52 w-full" src="${video.thumbnail}" />
-            <p class="p-1  rounded text-white relative -top-10 ${lef} w-fit ${hid}">${timeAgoText}</p>
+            <div class="relative">
+            <img class="rounded-lg h-52 w-full " src="${video.thumbnail}" />
+            <p class="p-1 rounded text-white absolute bottom-3 right-3 w-fit ${hid}">${timeAgoText}</p>
             </div>
             <div class="card-body">
                   
