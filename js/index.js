@@ -1,3 +1,25 @@
+const loadBtn = async () => {
+      const resBtn = await fetch('https://openapi.programming-hero.com/api/videos/categories');
+      const dataBtn = await resBtn.json();
+      const buttons = dataBtn.data;
+
+      displayButtons(buttons);
+      
+}
+
+const displayButtons = buttons => {
+      const buttonContainer = document.getElementById('button-container');
+
+      buttons.forEach(button => {
+            const buttonCard = document.createElement('button');
+            buttonCard.classList = `btn btn-error text-white bg-[#FF1F3D]`;
+            buttonCard.innerHTML = `
+            ${button.category}
+            `;
+            buttonContainer.appendChild(buttonCard);
+      })
+}
+
 const loadVideo = async () => {
       const res = await fetch('https://openapi.programming-hero.com/api/videos/category/1000')
       const data = await res.json();
@@ -10,7 +32,6 @@ const displayVideo = videos => {
       const videoContainer = document.getElementById('video-container');
 
       videos.forEach(video => {
-            console.log(video);
             const videoCard = document.createElement('div');
             videoCard.classList = `card card-compact bg-base-100`;
             videoCard.innerHTML = `
@@ -32,9 +53,11 @@ const displayVideo = videos => {
                   </div>
 
             </div>
-            `
+            `;
             videoContainer.appendChild(videoCard);
       })
 }
 
 loadVideo();
+
+loadBtn();
