@@ -27,16 +27,35 @@
 
     <hr>
 
-    <main>
-        <h3>Discuss the scope of var, let, and const</h3>
-        <p>var:</p>
-        <p>let:</p>
-        <p>const:</p>
-        <h3>Tell us the use cases of null and undefined</h3>
-        <p>null:</p>
-        <p>undefined:</p>
-        <h3>What do you mean by REST API?</h3>
-        <p>REST API</p>
+    <main class="lg:px-20 px-5 py-6 flex justify-around items-center">
+        <section>
+            <h3 class="text-5xl py-5 font-bold">The scope of var, let, and const</h3>
+            <hr>
+            <p class="text-1xl pl-5 py-4"><span class="text-xl font-semibold">var:</span> var keyword is function-scoped. This means that when a variable is declared using var within a function, that variable is visible throughout the entire function, regardless of where it is declared.</p>
+            <p class="text-1xl pl-5 py-4"><span class="text-xl font-semibold">let:</span> the let keyword is used to declare block-scoped variables. This means that a variable declared with let is only accessible within the block (enclosed by curly braces {}) in which it is defined. Outside of that block, the variable is not accessible.</p>
+            <p class="text-1xl pl-5 py-4"><span class="text-xl font-semibold">const:</span> the const keyword is used to declare variables with block-level scope. This means they are only accessible within the block in which they are defined. Variables declared with const cannot be reassigned after their initial value is set. They are considered constants. Variables declared with const must be initialized with a value at the time of declaration.</p>
+
+            <h3 class="text-5xl py-5 font-bold">The use cases of null and undefined</h3>
+            <hr>
+            <p class="text-1xl pl-5 py-4"><span class="text-xl font-semibold">null:</span>
+                <ol class="list-decimal list-outside pl-14">
+                    <li><span class="font-semibold">Explicitly Indicating Absence of a Value:</span> null is often used to explicitly indicate that a variable or object property intentionally does not have a value or is empty.</li>
+                    <li><span class="font-semibold">Resetting or Clearing Values:</span> A variable or object property can be set to null to reset or clear its value.</li>
+                    <li><span class="font-semibold">As a Placeholder:</span> null can be used as a placeholder when you plan to assign a meaningful value to a variable or property later.</li>
+                </ol>
+            </p>
+            <p class="text-1xl pl-5 py-4"><span class="text-xl font-semibold">undefined:</span>
+                <ol class="list-decimal list-outside pl-14">
+                    <li><span class="font-semibold">Default Value:</span> Variables that are declared but not initialized are undefined by default. This can be useful when you want to check if a variable has been assigned a value.</li>
+                    <li><span class="font-semibold">Function Parameters:</span> Function parameters that are not provided by the caller are undefined by default.</li>
+                    <li><span class="font-semibold">Object Properties:</span> If you access an object property that doesn't exist, it returns undefined.</li>
+                </ol>
+            </p>
+
+            <h3 class="text-5xl py-5 font-bold">What is REST API?</h3>
+            <hr>
+            <p class="text-1xl pl-5 py-4"><span class="text-xl font-semibold">REST API:</span> A REST API, or Representational State Transfer Application Programming Interface, is a standardized approach to designing web services that adhere to specific principles and constraints. It emphasizes statelessness, treating everything as resources with unique URLs, and employing standard HTTP methods (such as GET, POST, PUT, DELETE) for operations like data retrieval, creation, updating, and deletion. REST APIs provide a uniform and intuitive interface, support various data representations (e.g., JSON, XML), and facilitate communication between clients and servers over the internet. Their stateless nature, coupled with the ability to work with multiple layers and leverage caching, makes RESTful APIs a popular choice for building scalable and interoperable web applications and services.</p>
+        </section>
     </main>
 </body>
 </html>
