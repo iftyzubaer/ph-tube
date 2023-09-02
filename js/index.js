@@ -17,9 +17,8 @@ const displayButtons = buttons => {
             ${button.category}
             `;
             buttonContainer.appendChild(buttonCard);
-      }      
+      }
 }
-
 
 const loadVideo = async () => {
       const res = await fetch('https://openapi.programming-hero.com/api/videos/category/1000')
@@ -48,6 +47,20 @@ const displayVideo = videos => {
                   hid = '';
             }
 
+            verify = video.authors[0].verified;
+            if(verify === true) {
+                  veriHid = 'bg-blue-500';
+            }
+            else {
+                  veriHid = 'hidden';
+            }
+            if(verify === true) {
+                  checkHid = '';
+            }
+            else {
+                  checkHid = 'hidden';
+            }
+
             videoCard.classList = `card card-compact bg-base-100`;
             videoCard.innerHTML = `
             <div class="relative">
@@ -65,8 +78,9 @@ const displayVideo = videos => {
 
                         <div>
                               <h2 class="card-title">${video.title}</h2>
-                              <div>
+                              <div class="flex gap-2">
                                     <p>${video.authors[0].profile_name}</p>
+                                    <div class="rounded-full px-2 py-1 ${veriHid}"><i class="fa-solid fa-check ${checkHid}"></i></div>
                               </div>
                               <p>${video.others.views} views</p>
                         </div>
