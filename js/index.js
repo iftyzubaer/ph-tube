@@ -17,8 +17,9 @@ const displayButtons = buttons => {
             ${button.category}
             `;
             buttonContainer.appendChild(buttonCard);
-      }
+      }      
 }
+
 
 const loadVideo = async () => {
       const res = await fetch('https://openapi.programming-hero.com/api/videos/category/1000')
