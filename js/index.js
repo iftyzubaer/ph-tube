@@ -71,9 +71,9 @@ const displayVideo = videos => {
 
                         <div>
                               <h2 class="card-title">${video.title}</h2>
-                              <div class="flex gap-2">
+                              <div class="flex items-center">
                                     <p>${video.authors[0].profile_name}</p>
-                                    <div class="rounded-full px-2 py-1 ${veriHid}"><i class="fa-solid fa-check ${checkHid}"></i></div>
+                                    <div class="rounded-full px-2 py-1 ${veriHid}"><i class="fa-solid fa-check text-white ${checkHid}"></i></div>
                               </div>
                               <p>${video.others.views} views</p>
                         </div>
@@ -89,8 +89,17 @@ const sortHandler = async (buttonCardId) => {
       const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${buttonCardId}`);
       const data = await res.json();
       const videos = data.data;
+      const noVideoContainer = document.getElementById('no-video-container');
+      if (videos.length === 0) {
+            noVideoContainer.classList = ('flex flex-col justify-center items-center text-center gap-6');
+      }
+      else {
+            noVideoContainer.classList = ('hidden');
+      }
       displayVideo(videos);
 }
+
+
 
 sortHandler("1000");
 
